@@ -1,0 +1,252 @@
+/*
+ * Bevegelse. Én kurve og tre tempoer fra designsystemet (--ease, --dur-fast, --dur-base, --dur-slow).
+ * Alt slås av for dem som har bedt om redusert bevegelse (se nederst).
+ */
+
+@keyframes fade-inn {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes loft-inn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@keyframes skala-inn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+}
+
+/* Ny skjerm: innholdet toner inn når man bytter fane (nøkkel i App.tsx gir ny animasjon) */
+.innhold {
+  animation: fade-inn var(--dur-base) var(--ease) backwards;
+}
+
+/* Lister: hvert kort stiger litt opp, ett etter ett. Opptil 12, resten kommer samtidig med nr. 12 */
+.hendelser > li,
+.vareliste > li,
+.rettliste > li,
+.oppgaver > *,
+.ukevisning > *,
+.brukerliste > li,
+.middagsuke > li,
+.versjonsliste > *,
+.poengrad > *,
+.kalliste > li {
+  --i: 11;
+  animation: loft-inn var(--dur-slow) var(--ease) backwards;
+  animation-delay: calc(var(--i) * 45ms);
+}
+.hendelser > li:nth-child(1),
+.vareliste > li:nth-child(1),
+.rettliste > li:nth-child(1),
+.oppgaver > *:nth-child(1),
+.ukevisning > *:nth-child(1),
+.brukerliste > li:nth-child(1),
+.middagsuke > li:nth-child(1),
+.versjonsliste > *:nth-child(1),
+.poengrad > *:nth-child(1),
+.kalliste > li:nth-child(1) {
+  --i: 0;
+}
+.hendelser > li:nth-child(2),
+.vareliste > li:nth-child(2),
+.rettliste > li:nth-child(2),
+.oppgaver > *:nth-child(2),
+.ukevisning > *:nth-child(2),
+.brukerliste > li:nth-child(2),
+.middagsuke > li:nth-child(2),
+.versjonsliste > *:nth-child(2),
+.poengrad > *:nth-child(2),
+.kalliste > li:nth-child(2) {
+  --i: 1;
+}
+.hendelser > li:nth-child(3),
+.vareliste > li:nth-child(3),
+.rettliste > li:nth-child(3),
+.oppgaver > *:nth-child(3),
+.ukevisning > *:nth-child(3),
+.brukerliste > li:nth-child(3),
+.middagsuke > li:nth-child(3),
+.versjonsliste > *:nth-child(3),
+.poengrad > *:nth-child(3),
+.kalliste > li:nth-child(3) {
+  --i: 2;
+}
+.hendelser > li:nth-child(4),
+.vareliste > li:nth-child(4),
+.rettliste > li:nth-child(4),
+.oppgaver > *:nth-child(4),
+.ukevisning > *:nth-child(4),
+.brukerliste > li:nth-child(4),
+.middagsuke > li:nth-child(4),
+.versjonsliste > *:nth-child(4),
+.poengrad > *:nth-child(4),
+.kalliste > li:nth-child(4) {
+  --i: 3;
+}
+.hendelser > li:nth-child(5),
+.vareliste > li:nth-child(5),
+.rettliste > li:nth-child(5),
+.oppgaver > *:nth-child(5),
+.ukevisning > *:nth-child(5),
+.brukerliste > li:nth-child(5),
+.middagsuke > li:nth-child(5),
+.versjonsliste > *:nth-child(5),
+.poengrad > *:nth-child(5),
+.kalliste > li:nth-child(5) {
+  --i: 4;
+}
+.hendelser > li:nth-child(6),
+.vareliste > li:nth-child(6),
+.rettliste > li:nth-child(6),
+.oppgaver > *:nth-child(6),
+.ukevisning > *:nth-child(6),
+.brukerliste > li:nth-child(6),
+.middagsuke > li:nth-child(6),
+.versjonsliste > *:nth-child(6),
+.poengrad > *:nth-child(6),
+.kalliste > li:nth-child(6) {
+  --i: 5;
+}
+.hendelser > li:nth-child(7),
+.vareliste > li:nth-child(7),
+.rettliste > li:nth-child(7),
+.oppgaver > *:nth-child(7),
+.ukevisning > *:nth-child(7),
+.brukerliste > li:nth-child(7),
+.middagsuke > li:nth-child(7),
+.versjonsliste > *:nth-child(7),
+.poengrad > *:nth-child(7),
+.kalliste > li:nth-child(7) {
+  --i: 6;
+}
+.hendelser > li:nth-child(8),
+.vareliste > li:nth-child(8),
+.rettliste > li:nth-child(8),
+.oppgaver > *:nth-child(8),
+.ukevisning > *:nth-child(8),
+.brukerliste > li:nth-child(8),
+.middagsuke > li:nth-child(8),
+.versjonsliste > *:nth-child(8),
+.poengrad > *:nth-child(8),
+.kalliste > li:nth-child(8) {
+  --i: 7;
+}
+.hendelser > li:nth-child(9),
+.vareliste > li:nth-child(9),
+.rettliste > li:nth-child(9),
+.oppgaver > *:nth-child(9),
+.ukevisning > *:nth-child(9),
+.brukerliste > li:nth-child(9),
+.middagsuke > li:nth-child(9),
+.versjonsliste > *:nth-child(9),
+.poengrad > *:nth-child(9),
+.kalliste > li:nth-child(9) {
+  --i: 8;
+}
+.hendelser > li:nth-child(10),
+.vareliste > li:nth-child(10),
+.rettliste > li:nth-child(10),
+.oppgaver > *:nth-child(10),
+.ukevisning > *:nth-child(10),
+.brukerliste > li:nth-child(10),
+.middagsuke > li:nth-child(10),
+.versjonsliste > *:nth-child(10),
+.poengrad > *:nth-child(10),
+.kalliste > li:nth-child(10) {
+  --i: 9;
+}
+.hendelser > li:nth-child(11),
+.vareliste > li:nth-child(11),
+.rettliste > li:nth-child(11),
+.oppgaver > *:nth-child(11),
+.ukevisning > *:nth-child(11),
+.brukerliste > li:nth-child(11),
+.middagsuke > li:nth-child(11),
+.versjonsliste > *:nth-child(11),
+.poengrad > *:nth-child(11),
+.kalliste > li:nth-child(11) {
+  --i: 10;
+}
+.hendelser > li:nth-child(12),
+.vareliste > li:nth-child(12),
+.rettliste > li:nth-child(12),
+.oppgaver > *:nth-child(12),
+.ukevisning > *:nth-child(12),
+.brukerliste > li:nth-child(12),
+.middagsuke > li:nth-child(12),
+.versjonsliste > *:nth-child(12),
+.poengrad > *:nth-child(12),
+.kalliste > li:nth-child(12) {
+  --i: 11;
+}
+
+/* Meldinger og bokser */
+.infoboks {
+  animation: loft-inn var(--dur-base) var(--ease) backwards;
+}
+.forslag {
+  animation: loft-inn var(--dur-fast) var(--ease) backwards;
+}
+.boksbakgrunn {
+  animation: fade-inn var(--dur-base) var(--ease) backwards;
+}
+.boks {
+  animation: skala-inn var(--dur-slow) var(--ease) backwards;
+}
+.lapp.redigerer,
+.hendelseskjema,
+.rettskjema,
+.kaladmin,
+.oppgave.skjema {
+  animation: loft-inn var(--dur-base) var(--ease) backwards;
+}
+
+/* Kort som kan trykkes på, løfter seg når pekeren er over (ikke på berøringsskjerm) og trykkes ned */
+.middagsrad.klikkbar,
+.varekryss,
+.flis,
+.dagcelle {
+  transition:
+    box-shadow var(--dur-base) var(--ease),
+    transform var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease);
+}
+@media (hover: hover) {
+  .middagsrad.klikkbar:hover,
+  .varekryss:hover {
+    box-shadow: var(--shadow-lift);
+    transform: translateY(-1px);
+  }
+  .flis:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 26px rgb(0 0 0 / 0.22);
+  }
+}
+.varekryss:active:not(:disabled),
+.middagsklikk:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+/* Avkrysningsboksene fyller seg myk */
+.rute {
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease);
+}
+
+/* Redusert bevegelse: ingenting beveger seg, og ingenting venter på en forsinkelse */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

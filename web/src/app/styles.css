@@ -1,0 +1,2246 @@
+:root {
+  /* Appens egne navn, koblet til designtokens i design/tokens.css */
+  --bg: var(--paper);
+  --kort: var(--paper-2);
+  --fg: var(--ink);
+  --dempet: var(--fg-3);
+  --linje: var(--hairline);
+  --accent: var(--green-ink);
+  --accent-hover: var(--green-ink-hover);
+  --feil: var(--danger);
+}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+html {
+  overflow-x: clip;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  border: 1px solid var(--linje);
+  background: var(--kort);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.1rem;
+  min-height: var(--touch);
+  font-weight: 500;
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+button.primær {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-green);
+  font-weight: 700;
+}
+button.primær:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+button:disabled {
+  opacity: 0.5;
+}
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--green-deep) 70%, transparent);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+input,
+select {
+  width: 100%;
+  min-height: var(--touch);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-field);
+  background: var(--kort);
+  font-size: 16px; /* hindrer zoom på iPhone */
+}
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+h1 {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.feil {
+  color: var(--feil);
+}
+.melding {
+  color: var(--ok);
+}
+.hint {
+  color: var(--dempet);
+}
+
+/* Innlogging */
+.login {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+  text-align: center;
+}
+.fliser {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 220px));
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 760px;
+  margin-top: 1rem;
+}
+.flis {
+  border: 0;
+  border-radius: 24px;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.18);
+}
+.flis:active {
+  transform: scale(0.97);
+}
+.flis .emoji {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+.flis .navn {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.3rem;
+  flex: none;
+}
+.avatar.stor {
+  width: 88px;
+  height: 88px;
+  font-size: 2.8rem;
+}
+.tilbake,
+.lenke {
+  background: none;
+  border: 0;
+  color: var(--accent);
+}
+.tilbake {
+  align-self: flex-start;
+  position: absolute;
+  top: max(0.75rem, env(safe-area-inset-top));
+  left: 0.75rem;
+}
+.pinpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.pinprikker {
+  display: flex;
+  gap: 0.9rem;
+  min-height: 20px;
+}
+.pinprikker span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--dempet);
+}
+.pinprikker span.fylt {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.taster {
+  display: grid;
+  grid-template-columns: repeat(3, 84px);
+  gap: 0.75rem;
+}
+.taster button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 84px;
+  border-radius: 50%;
+  font-size: 1.9rem;
+  padding: 0;
+}
+.taster button:active {
+  background: var(--accent);
+  color: var(--on-green);
+}
+@media (orientation: landscape) and (max-height: 520px) {
+  .taster {
+    grid-template-columns: repeat(3, 60px);
+    gap: 0.5rem;
+  }
+  .taster button {
+    height: 60px;
+    font-size: 1.4rem;
+  }
+  .avatar.stor {
+    display: none;
+  }
+}
+
+/* Skall */
+.skall {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.innhold {
+  flex: 1;
+  /* Bunnmenyen er fast (ca. 68 px, pluss sikker sone på iPhone). Resten er luft under siste element. */
+  padding: 0.75rem 1rem calc(7rem + env(safe-area-inset-bottom));
+}
+/* Familie og profil */
+.brukerliste {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+.brukerliste li {
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+  padding: 0.7rem;
+}
+.brukerliste li.inaktiv {
+  opacity: 0.55;
+}
+.brukerliste .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.brukerliste li {
+  min-width: 0;
+}
+.brukerliste .handlinger {
+  flex-wrap: wrap;
+}
+.brukerliste small {
+  color: var(--dempet);
+}
+.handlinger {
+  display: flex;
+  gap: 0.4rem;
+}
+.pinskjema {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+}
+.pinskjema .felt {
+  flex: 1;
+}
+.rolle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+}
+.nyttskjema {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 420px;
+}
+.nyttskjema label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--dempet);
+}
+.fargevalg {
+  display: flex;
+  gap: 0.6rem;
+}
+.fargevalg button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch);
+  height: var(--touch);
+  border-radius: 50%;
+  padding: 0;
+  border: 3px solid transparent;
+}
+.fargevalg button.valgt {
+  border-color: var(--fg);
+}
+.profil {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.profil h3 {
+  margin-top: 1.5rem;
+}
+.profil .faner {
+  align-self: stretch;
+}
+.profil .profilnavn {
+  margin: 0;
+  font-size: 1.25rem;
+}
+/* Sammenleggbare deler av innstillingene: bare tittelen vises til man trykker. */
+.sammenleggbar {
+  align-self: stretch;
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+  background: var(--kort);
+}
+.sammenleggbar > summary {
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+.sammenleggbar > summary::-webkit-details-marker {
+  display: none;
+}
+.sammenleggbar > summary::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-right: 0.25rem;
+}
+.sammenleggbar[open] > summary::after {
+  transform: rotate(-135deg);
+}
+.sammenleggbar > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.sammenleggbar > :not(summary) {
+  margin: 0 1rem 1rem;
+}
+
+/* Oppslagstavle */
+.oppslag-topp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.oppslag-topp h2 {
+  margin: 0;
+}
+.tavle {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1.1rem;
+  padding: 1.1rem;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.08) 0 2px, transparent 3px) 0 0 / 28px
+      28px,
+    #c9a47a;
+  box-shadow: inset 0 0 0 6px #9a7650;
+  /* Tavla er bare så høy som lappene den har, så den ikke skyver dagene ned */
+  min-height: 7rem;
+  align-content: start;
+}
+@media (prefers-color-scheme: dark) {
+  .tavle {
+    background:
+      radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.05) 0 2px, transparent 3px) 0 0 / 28px
+        28px,
+      #6d5439;
+    box-shadow: inset 0 0 0 6px #4a3925;
+  }
+}
+.lapp {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 150px;
+  padding: 1.1rem 0.9rem 0.7rem;
+  border-radius: 3px 3px 12px 3px;
+  color: #2b2b2b;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 0.28);
+  font-family: "Bradley Hand", "Noteworthy", "Segoe Print", "Comic Sans MS", system-ui, sans-serif;
+  transition: transform 0.15s;
+}
+.lapp::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ff8a80, #c62828);
+  box-shadow: 0 2px 3px rgb(0 0 0 / 0.4);
+}
+.lapp:nth-child(3n + 1) {
+  transform: rotate(-1.6deg);
+}
+.lapp:nth-child(3n + 2) {
+  transform: rotate(1.2deg);
+}
+.lapp:nth-child(3n) {
+  transform: rotate(-0.5deg);
+}
+.lapp.redigerer {
+  transform: none;
+  z-index: 1;
+}
+@media (min-width: 560px) {
+  .lapp.redigerer {
+    grid-column: span 2;
+  }
+}
+.lapp-gul {
+  background: #fff3a0;
+}
+.lapp-rosa {
+  background: #ffc2d9;
+}
+.lapp-blå {
+  background: #bde0ff;
+}
+.lapp-grønn {
+  background: #c6f0b8;
+}
+.lapp-oransje {
+  background: #ffd3a1;
+}
+.lapptekst {
+  flex: 1;
+  margin: 0.4rem 0 0;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.lapp footer {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  padding-right: 4.2rem;
+}
+.lapp footer small {
+  color: rgb(0 0 0 / 0.68);
+}
+.lappvalg {
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.3rem;
+  display: flex;
+  gap: 0.15rem;
+}
+.lappvalg button {
+  min-height: var(--touch);
+  min-width: var(--touch);
+  padding: 0;
+  border: 0;
+  background: rgb(255 255 255 / 0.45);
+  border-radius: 50%;
+  color: #2b2b2b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.lapp textarea {
+  flex: 1;
+  min-height: 110px;
+  width: 100%;
+  margin-top: 0.4rem;
+  resize: none;
+  border: 0;
+  background: rgb(255 255 255 / 0.4);
+  border-radius: 6px;
+  padding: 0.5rem;
+  font: inherit;
+  font-size: 1.15rem;
+  color: #2b2b2b;
+}
+.lappfarger {
+  display: flex;
+  gap: 0.5rem;
+}
+.lappfarger .prikk {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  min-height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  border: 3px solid rgb(0 0 0 / 0.15);
+}
+.lappfarger .prikk.valgt {
+  border-color: #2b2b2b;
+}
+.lappknapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+.lappknapper small {
+  margin-right: auto;
+  white-space: nowrap;
+  color: rgb(0 0 0 / 0.6);
+}
+.lappknapper button {
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+}
+/* Lappen er alltid lys, også i mørk modus, så knappene her har egne farger */
+.lappknapper .knapp--sekundær {
+  background: rgb(255 255 255 / 0.65);
+  border-color: rgb(0 0 0 / 0.2);
+  color: #2b2b2b;
+}
+.lapp .feil {
+  margin: 0;
+  color: #b42318;
+}
+.tomtavle {
+  text-align: center;
+  margin-top: 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lapp {
+    transition: none;
+  }
+}
+
+/* Gjøremål og poeng */
+.poengrad {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.poengkort {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 170px;
+  padding: 0.7rem 1rem;
+  background: var(--kort);
+  border: 2px solid var(--linje);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.profil .poengkort {
+  align-self: stretch;
+  max-width: 420px;
+}
+.poengnavn {
+  font-weight: 600;
+}
+.poengsum {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.5rem;
+}
+.godkjent-tekst {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 0.4rem;
+  color: var(--ok);
+  font-weight: 600;
+}
+.poengklare {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--dempet);
+  font-size: 0.95rem;
+}
+.seksjon {
+  margin-bottom: 1.25rem;
+}
+.seksjonstittel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--dempet);
+}
+.oppgaver {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+.oppgave {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-left: 6px solid var(--accent);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.oppgave.tatt {
+  border-left-color: var(--sol);
+}
+.oppgave.venter {
+  border-left-color: var(--slate);
+  background: color-mix(in srgb, var(--slate) 12%, var(--kort));
+}
+.oppgave.godkjent {
+  border-left-color: var(--ok);
+  background: color-mix(in srgb, var(--ok) 6%, var(--kort));
+}
+.oppgave.skjema {
+  border-left-color: var(--accent);
+}
+/* Godkjente gjøremål: en tett, rolig liste i stedet for kort */
+.ferdige {
+  margin-top: 1.75rem;
+}
+.ferdige__tittel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--fg-3);
+}
+.ferdigliste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--linje);
+}
+.ferdigrad {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 0.25rem;
+  border-bottom: 1px solid var(--linje);
+  color: var(--fg-3);
+  font-size: 0.9rem;
+}
+.ferdigrad > .lucide {
+  color: var(--ok);
+}
+.ferdigrad__tekst {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.6rem;
+}
+.ferdigrad__tittel {
+  overflow-wrap: anywhere;
+}
+.ferdigrad__meta {
+  font-size: 0.8rem;
+}
+.oppgave.skjema label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--dempet);
+}
+.oppgavetopp {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+.oppgavemerker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+.oppgavetopp h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+}
+.oppgaveinfo {
+  margin: 0;
+  color: var(--dempet);
+  font-size: 0.95rem;
+}
+.eier {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.oppgaveknapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.oppgaveknapper button.stor {
+  min-height: 52px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.1rem;
+}
+.oppgaveknapper .venter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: auto;
+  color: var(--dempet);
+}
+.oppgaveknapper .verktoy {
+  margin-left: auto;
+  display: flex;
+  gap: 0.25rem;
+}
+
+/* Værvarsel over oppslagstavla */
+.vaer {
+  margin-bottom: 1rem;
+  padding: 0.7rem 0.75rem 0.5rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.vaerdager {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.2rem;
+}
+.vaerdag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.4rem 0.1rem;
+  border-radius: 12px;
+  text-align: center;
+}
+.vaerdag.idag {
+  background: color-mix(in srgb, var(--accent) 14%, var(--kort));
+}
+.vaerukedag {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.vaersymbol {
+  display: flex;
+  padding: 0.15rem 0;
+  color: var(--green-ink);
+}
+.vaersymbol.sol {
+  color: var(--sol);
+}
+.vaersymbol.sky {
+  color: var(--sky-ikon);
+}
+.vaersymbol.regn {
+  color: var(--regn);
+}
+.vaersymbol.torden {
+  color: var(--sol);
+}
+.vaersymbol.snoe {
+  color: var(--snoe);
+}
+.animert-ikon {
+  display: flex;
+}
+.vaermaks {
+  font-weight: 700;
+}
+.vaermin {
+  color: var(--dempet);
+  font-size: 0.9rem;
+}
+.vaernedbor {
+  color: var(--regn);
+  font-size: 0.7rem;
+  min-height: 1em;
+  white-space: nowrap;
+}
+@media (min-width: 600px) {
+  .vaerukedag {
+    font-size: 0.95rem;
+  }
+  .vaermaks {
+    font-size: 1.25rem;
+  }
+  .vaermin {
+    font-size: 1rem;
+  }
+  .vaernedbor {
+    font-size: 0.85rem;
+  }
+}
+
+/* Kalender */
+.kaltopp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.kaltittel {
+  margin: 0;
+}
+.kalnav {
+  display: flex;
+  gap: 0.3rem;
+}
+.kalverktoy {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.bryter {
+  display: flex;
+}
+.bryter button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 0;
+}
+.bryter button:first-child {
+  border-radius: var(--radius-pill) 0 0 var(--radius-pill);
+  padding-left: 1.2rem;
+}
+.bryter button:last-child {
+  border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+  border-left: 0;
+  padding-right: 1.2rem;
+}
+.bryter button.aktiv {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-green);
+  font-weight: 600;
+}
+.kalfilter {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.kalfilter button {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  min-height: var(--touch);
+  border-radius: 999px;
+}
+.kalfilter button.av {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+.kalfarge {
+  display: inline-block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+.manedsrutenett {
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+.ukehode,
+.manedsuke {
+  display: grid;
+  grid-template-columns: 1.7rem repeat(7, minmax(0, 1fr));
+}
+.ukehode {
+  padding: 0.35rem 0;
+  font-size: 0.8rem;
+  color: var(--dempet);
+  text-align: center;
+  border-bottom: 1px solid var(--linje);
+}
+.ukenr {
+  align-self: start;
+  padding-top: 0.45rem;
+  font-size: 0.7rem;
+  color: var(--dempet);
+  text-align: center;
+}
+.ukehode .ukenr {
+  padding-top: 0;
+}
+.manedsuke + .manedsuke {
+  border-top: 1px solid var(--linje);
+}
+.dagcelle {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+  min-height: 64px;
+  padding: 3px 2px;
+  border: 0;
+  border-left: 1px solid var(--linje);
+  border-radius: 0;
+  background: none;
+  text-align: left;
+  min-width: 0;
+}
+.dagcelle.utenfor .dagnr {
+  color: var(--fg-3);
+}
+.dagcelle.valgt {
+  background: color-mix(in srgb, var(--accent) 12%, var(--kort));
+}
+.dagnr {
+  align-self: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.dagcelle.idag .dagnr {
+  background: var(--accent);
+  color: var(--on-green);
+  font-weight: 700;
+}
+.pille {
+  display: block;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.flere::after {
+  content: "+" attr(data-antall);
+}
+.flere {
+  font-size: 0.65rem;
+  color: var(--dempet);
+  text-align: center;
+}
+@media (max-width: 599px) {
+  .pille {
+    align-self: center;
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0;
+  }
+  .dagcelle {
+    min-height: 56px;
+  }
+}
+.valgtdag {
+  margin-top: 1rem;
+}
+.valgtdagtopp,
+.ukedagtopp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.valgtdagtopp h3,
+.ukedagtopp h3 {
+  margin: 0;
+}
+.hendelser {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.hendelse {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-left: 6px solid var(--accent);
+  border-radius: var(--radius-field);
+  box-shadow: var(--shadow-card);
+}
+.hendelsetekst {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.hendelsetid,
+.hendelsested,
+.hendelsetekst small {
+  color: var(--dempet);
+  font-size: 0.9rem;
+}
+.hendelse .handlinger {
+  display: flex;
+  flex: none;
+}
+.hendelsested {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.hendelsetekst strong {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.ukevisning {
+  display: grid;
+  gap: 0.75rem;
+}
+.ukedag {
+  padding: 0.6rem 0.75rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.ukedag.idag {
+  border-color: var(--accent);
+}
+.hendelseskjema {
+  max-width: none;
+  margin: 0.5rem 0 1rem;
+  padding: 0.9rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+}
+.hendelseskjema h3 {
+  margin: 0;
+}
+.tidrad {
+  display: grid;
+  /* minmax(0, …): datofelt er ellers så brede at to av dem presser siden ut av skjermen på en mobil */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.6rem;
+}
+.tidrad > * {
+  min-width: 0;
+}
+.tidrad input {
+  width: 100%;
+  min-width: 0;
+}
+.handlinger {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+.kaladmin {
+  margin: 0.5rem 0 1rem;
+  padding: 0.9rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+}
+.kaladmin h3 {
+  margin-top: 0;
+}
+.kalliste {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.kalrad {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.kalrad.redigerer {
+  flex-direction: column;
+  align-items: stretch;
+}
+.kalnavn {
+  flex: 1;
+}
+.kalnavn small {
+  color: var(--dempet);
+}
+.fargevalg {
+  flex-wrap: wrap;
+  align-items: center;
+}
+.egenfarge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch);
+  height: var(--touch);
+  border: 2px dashed var(--fg-3);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.egenfarge.valgt {
+  border: 3px solid var(--fg);
+}
+.egenfarge input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Handleliste */
+.varefelt {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.komboboks {
+  position: relative;
+  flex: 1;
+}
+.varefelt > button {
+  align-self: flex-start;
+  min-height: 52px;
+}
+.komboboks input {
+  min-height: 52px;
+  font-size: 1.1rem;
+}
+.forslag {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-field);
+  box-shadow: var(--shadow-lift);
+}
+.forslag button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 50px;
+  text-align: left;
+  font-size: 1.05rem;
+  border: 0;
+  background: none;
+  border-radius: 8px;
+}
+.forslag button:hover,
+.forslag button.aktiv {
+  background: color-mix(in srgb, var(--accent) 14%, var(--kort));
+}
+.vareliste {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.vare {
+  display: flex;
+  align-items: stretch;
+  gap: 0.3rem;
+}
+.varekryss {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 54px;
+  padding: 0.4rem 0.9rem;
+  text-align: left;
+  font-size: 1.15rem;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.rute {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--fg-3);
+  border-radius: 8px;
+  color: var(--on-green);
+}
+.rute.huket {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.tomliste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1.5rem;
+  color: var(--green-ink);
+  text-align: center;
+}
+.tomliste p {
+  margin: 0;
+  color: var(--dempet);
+}
+.varenavn {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.vareav {
+  font-size: 1.1rem;
+}
+.vare.handlet .varenavn {
+  text-decoration: line-through;
+  color: var(--dempet);
+}
+.vare.handlet .varekryss {
+  opacity: 0.7;
+}
+
+.handlettopp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.handlettopp h3 {
+  margin: 0;
+  color: var(--dempet);
+  font-size: 1rem;
+}
+
+/* Middagsplan */
+.ukeoverskrift {
+  margin: 0;
+}
+.middagsuke {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.middagsdag {
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.7rem 0.8rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+}
+.middagsdag.idag {
+  border: 2px solid var(--accent);
+}
+.middagsdato {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.middagsdato span {
+  color: var(--dempet);
+  font-size: 0.9rem;
+}
+.middagsdato small {
+  color: var(--accent);
+  font-weight: 600;
+}
+.middagsvalg {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.middagsvalg select {
+  min-height: 48px;
+}
+.rett {
+  font-size: 1.2rem;
+  overflow-wrap: anywhere;
+}
+.notat {
+  color: var(--dempet);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Hjem: de neste dagene under oppslagstavla */
+.kommende {
+  margin-top: 1.5rem;
+}
+.hjem > .kommende:first-of-type {
+  margin-top: 0.5rem;
+}
+.hjem > .oppslag {
+  margin-top: 1.5rem;
+}
+/* Hjem på bred skjerm (iPad): tavla til venstre, dagene til høyre, så mer får plass uten å bla. */
+.hjem--bred {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+.hjem--bred .kommende {
+  margin-top: 0;
+}
+.hjem--bred .tavle {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.hendelse.middagsrad {
+  border-left-color: var(--ok);
+  background: color-mix(in srgb, var(--ok) 8%, var(--kort));
+}
+
+/* Emoji på profilen */
+.emojivelger {
+  width: 100%;
+  max-width: 440px;
+}
+.emojirutenett {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+.emojirutenett button {
+  padding: 0;
+  min-height: var(--touch);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.emojirutenett button.valgt {
+  border: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, var(--kort));
+}
+.egenemoji {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.egenemoji .felt {
+  flex: 1;
+}
+
+/* Notat i handlelisten, i grå skrift som i middagslista */
+.varetekst {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.varenotat {
+  color: var(--dempet);
+  font-size: 0.9rem;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.vare {
+  flex-wrap: wrap;
+}
+.nyttnotat {
+  margin-top: 0.4rem;
+  min-height: var(--touch);
+  font-size: 1rem;
+}
+.notatskjema {
+  flex-basis: 100%;
+  display: flex;
+  gap: 0.4rem;
+}
+.notatskjema input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Middagsretter og stjerner */
+.rettliste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.rett-kort {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.rett-topp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.retttittel {
+  font-size: 1.15rem;
+  overflow-wrap: anywhere;
+}
+.rettnotat {
+  white-space: pre-wrap;
+}
+.snitt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.snitt small {
+  font-weight: 400;
+  color: var(--dempet);
+}
+.snitt.tom {
+  font-weight: 400;
+  color: var(--dempet);
+}
+.minscore {
+  color: var(--dempet);
+  font-size: 0.9rem;
+}
+.rettskjema {
+  max-width: none;
+  margin: 0.5rem 0 1rem;
+  padding: 0.9rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+}
+.rettskjema h3 {
+  margin: 0;
+}
+.rettskjema textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--linje);
+  border-radius: 10px;
+  background: var(--kort);
+  font: inherit;
+  font-size: 16px;
+  resize: vertical;
+}
+.hendelse.middagsrad.klikkbar {
+  flex-wrap: wrap;
+  padding: 0;
+}
+.middagsklikk {
+  flex: 1;
+  display: block;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 0;
+  background: none;
+  border-radius: 12px;
+  min-height: 56px;
+}
+.stjerneboks {
+  flex-basis: 100%;
+  padding: 0 0.75rem 0.75rem;
+}
+.stjerneboks p {
+  margin: 0 0 0.3rem;
+  color: var(--dempet);
+}
+.stjernevelger {
+  display: flex;
+  gap: 0.3rem;
+}
+.stjernevelger button {
+  flex: 1;
+  max-width: 64px;
+  min-height: 56px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--stjerne-strek);
+}
+.stjernevelger button.fylt {
+  border-color: var(--stjerne-strek);
+}
+.stjerne {
+  color: var(--stjerne-strek);
+  fill: none;
+  flex: none;
+}
+.stjerne[fill="currentColor"] {
+  fill: var(--stjerne-fyll);
+}
+.stjernerekke {
+  display: inline-flex;
+  gap: 1px;
+  vertical-align: middle;
+}
+
+/* Boks som spør hvilke ingredienser som skal på handlelisten */
+.boksbakgrunn {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgb(0 0 0 / 0.5);
+}
+.boks {
+  width: 100%;
+  max-width: 460px;
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: 1.1rem;
+  background: var(--kort);
+  border-radius: 18px;
+  box-shadow: 0 16px 48px rgb(0 0 0 / 0.35);
+}
+.boks h3 {
+  margin: 0 0 0.3rem;
+}
+.boksverktoy {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+.boksverktoy button {
+  min-height: var(--touch);
+  padding: 0.3rem 0.8rem;
+}
+.ingrediensvalg {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+}
+.ingrediensvalg label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 52px;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--linje);
+  border-radius: 12px;
+  cursor: pointer;
+}
+/* Den egentlige avkryssingsboksen er skjult, og .rute tegner den i stedet. Den er fortsatt i tabulatorrekkefølgen. */
+.ingrediensvalg input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  min-height: 0;
+  height: 1px;
+}
+.ingrediensvalg label {
+  position: relative;
+}
+.ingrediensvalg input:focus-visible ~ .rute {
+  outline: 3px solid color-mix(in srgb, var(--green-deep) 70%, transparent);
+  outline-offset: 2px;
+}
+.ingrediensnavn {
+  flex: 1;
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+.ingrediensvalg small {
+  color: var(--dempet);
+}
+.ingrediensvalg input:not(:checked) + .ingrediensnavn {
+  color: var(--dempet);
+  text-decoration: line-through;
+}
+
+/* Hva er nytt */
+.hvanytt {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 1.5rem;
+}
+.hvanytt h3 {
+  margin-bottom: 0.1rem;
+}
+.versjonsliste {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.versjon {
+  box-shadow: var(--shadow-card);
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+  padding: 0 0.9rem;
+}
+.versjon summary {
+  display: grid;
+  gap: 0.05rem;
+  padding: 0.7rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+.versjon summary::-webkit-details-marker {
+  display: none;
+}
+.versjonsnavn {
+  font-weight: 700;
+}
+.versjonsdato {
+  color: var(--dempet);
+  font-size: 0.85rem;
+}
+.versjonstittel {
+  font-size: 1rem;
+}
+.versjon ul {
+  margin: 0 0 0.8rem;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+}
+.voksenmerke {
+  color: var(--dempet);
+}
+.gjoremal > .oppgaver {
+  margin-bottom: 1.25rem;
+}
+
+/* Avkrysningsboks med tegnet hake (.rute er felles med handlelista) */
+.avkrysning,
+.nyttskjema label.avkrysning {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: var(--touch);
+  color: var(--fg);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.avkrysning input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  min-height: 0;
+  height: 1px;
+}
+.avkrysning input:focus-visible ~ .rute {
+  outline: 3px solid color-mix(in srgb, var(--green-deep) 70%, transparent);
+  outline-offset: 2px;
+}
+.nyttittel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.infoboks {
+  scroll-margin: 5rem 0 7rem;
+}
+
+/* Ikoner skal aldri krympe når teksten ved siden av går over flere linjer */
+.lucide,
+.animert-ikon {
+  flex-shrink: 0;
+}
+.hendelsetekst strong {
+  align-items: flex-start;
+}
+.hendelsetekst strong > .lucide,
+.hendelsetekst strong > .animert-ikon {
+  margin-top: 0.1em;
+}
+
+/* Hopp-lenke for tastaturbrukere: skjult til den får fokus */
+.hopp {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch);
+  padding: 0 1.1rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--on-green);
+  font-weight: 700;
+  text-decoration: none;
+}
+.hopp:focus {
+  top: max(0.75rem, env(safe-area-inset-top));
+}
+.innhold:focus {
+  outline: none;
+}
+.hopp:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Lekser */
+.hendelse.lekse {
+  padding: 0;
+}
+.lekse__vel {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.75rem;
+}
+.hendelse.lekse .handlinger {
+  padding-right: 0.25rem;
+}
+.hendelse.lekse.gjort .hendelsetekst strong {
+  color: var(--fg-3);
+  text-decoration: line-through;
+}
+.lekse__fag {
+  font-weight: 400;
+  color: var(--dempet);
+}
+.lekse__fritekst {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  color: var(--fg-2, var(--dempet));
+  font-size: 0.95rem;
+}
+.forfalt {
+  color: var(--danger);
+  font-weight: 600;
+}
+.leksetittel {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.leksliste {
+  margin-top: 0;
+}
+/* Faste påminnelser (gym, bibliotek): én liten linje øverst på dagen, så de tar lite plass. */
+.paaminnelser {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.75rem;
+  margin: 0 0 0.4rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--fg-2, var(--dempet));
+}
+.paaminnelser strong {
+  font-weight: 600;
+}
+.paaminnelser__barn {
+  color: var(--dempet);
+}
+.paaminnelser-fane {
+  margin-top: 1.5rem;
+}
+.paaminnelseliste {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.paaminnelserad {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--linje);
+}
+.lekse-skjema {
+  list-style: none;
+}
+.barnevalg {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.barnevalg legend {
+  padding: 0;
+  font-size: 0.9rem;
+  color: var(--dempet);
+}
+.hendelse.lekse .hendelsetekst strong {
+  display: block;
+}
+
+/* KI */
+.ki .kistatus {
+  margin: 0 0 0.75rem;
+}
+.kiopplasting {
+  max-width: none;
+}
+.kifremdrift {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+}
+.kifremdrift p {
+  margin: 0;
+  color: var(--fg-2);
+}
+.kifremdrift__stripe {
+  display: block;
+  height: 6px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-radius: 999px;
+}
+.kifremdrift__stripe span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  animation: kiglid 1.4s ease-in-out infinite;
+}
+@keyframes kiglid {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kifremdrift__stripe span {
+    width: 100%;
+    animation: none;
+  }
+}
+.kispm {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+.kispm legend {
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.kivalg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.kivalgknapp {
+  min-height: var(--touch);
+  padding: 0.5rem 1rem;
+  color: var(--fg);
+  background: var(--kort);
+  border: 2px solid var(--linje);
+  border-radius: var(--radius-pill);
+  font: inherit;
+  cursor: pointer;
+}
+.kivalgknapp.valgt {
+  color: var(--on-green);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.kigruppetopp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.kigruppetopp h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+.kiliste {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.kiforslag {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-left: 6px solid var(--accent);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+.kiforslag.av {
+  background: transparent;
+  border-left-color: var(--linje);
+  box-shadow: none;
+}
+.kiforslag p {
+  margin: 0;
+}
+.kimeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg-2);
+  font-size: 0.9rem;
+}
+.kifelter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.5rem 0.75rem;
+}
+.kifelter > .kifelt-bred,
+.kifelter > .felt:has(textarea) {
+  grid-column: 1 / -1;
+}
+.kisammendrag {
+  margin: 0 0 0.75rem;
+  color: var(--fg-2);
+}
+.kiadvarsler {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.kiresultat {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Stripen som sier at en ny versjon av appen er klar. */
+.oppdatering {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  padding-top: max(0.5rem, env(safe-area-inset-top));
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.oppdatering button {
+  background: #fff;
+  color: var(--accent);
+  border-color: #fff;
+}
+
+/* Knappene under KI-ens spørsmål brytes til flere linjer på smale skjermer i stedet for å gå ut av bildet. */
+.kisporsmaal .handlinger {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Middagsforslag fra KI over ukeplanen. */
+.kimiddag {
+  margin: 0 0 1rem;
+}
+.kimiddag--apen {
+  padding: 0.75rem 1rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-radius: var(--radius-card);
+}
+.kimiddag--apen h3 {
+  margin: 0 0 0.5rem;
+}
+
+/* Mengden middagene trenger av en vare, ved siden av navnet på handlelisten. */
+.varemengde {
+  font-weight: 400;
+  color: var(--dempet);
+}
+
+/* Hjem på iPad får bruke hele bredden, de andre fanene holder seg til en lesbar bredde. */
+.skall:has(.hjem--bred) {
+  max-width: 1240px;
+}
+
+/* Raden med andre handlinger under toppen, som KI-knappene. Åpnes et KI-panel, tar det hele bredden. */
+.sideverktoy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.sideverktoy:empty {
+  display: none;
+}
+.sideverktoy > .kimiddag {
+  margin: 0;
+}
+.sideverktoy > .kimiddag--apen {
+  flex-basis: 100%;
+  /* Uten dette kan brede felt i panelet presse siden bredere enn skjermen */
+  min-width: 0;
+}
+
+/*
+ * Felles listerad (versjon 32). Lekser, gjøremål, påminnelser, varer og retter ser like ut: et kort med
+ * fargestripe eller avkrysning til venstre, tittel og en grå linje under, og knappene inni kortet til høyre.
+ * Modellen er .hendelse over.
+ */
+.vare,
+.rett-kort,
+.paaminnelserad {
+  padding: 0.6rem 0.75rem;
+  background: var(--kort);
+  border: 1px solid var(--linje);
+  border-left: 6px solid var(--linje);
+  border-radius: var(--radius-field);
+  box-shadow: var(--shadow-card);
+}
+.paaminnelseliste {
+  gap: 0.5rem;
+}
+.paaminnelserad {
+  min-height: 52px;
+}
+.vare {
+  align-items: center;
+  gap: 0;
+  padding: 0 0.25rem 0 0;
+  border-left-color: var(--accent);
+}
+.vare .varekryss {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  font-size: 1.1rem;
+}
+.vare.handlet {
+  border-left-color: var(--linje);
+}
+.rett-kort {
+  border-left-color: var(--accent);
+}
+.retttittel {
+  font-size: 1.05rem;
+}
+
+/* Gjøremål: tittel og merker til venstre, knappene til høyre i samme kort, så kortene blir lave. */
+.oppgave:not(.skjema) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 0.75rem;
+  row-gap: 0.3rem;
+  align-items: center;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-field);
+}
+.oppgave:not(.skjema) > * {
+  grid-column: 1;
+}
+.oppgave:not(.skjema) .oppgavetopp {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+.oppgave:not(.skjema) .oppgavemerker {
+  justify-content: flex-start;
+}
+.oppgavetopp h3 {
+  font-size: 1.05rem;
+}
+.oppgave:not(.skjema) > .oppgaveknapper {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+}
+/* Store knapper for barna («Jeg tar den», «Ferdig») får hele bredden under, så de er lette å treffe. */
+.oppgave:not(.skjema) > .oppgaveknapper:has(.stor, .venter) {
+  grid-column: 1 / -1;
+  grid-row: auto;
+}
+
+/* Poengene for de voksne: en smal linje med barna side om side. */
+.poengrad {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.poengrad .poengkort {
+  min-width: 0;
+  gap: 0;
+  padding: 0.4rem 0.8rem;
+}
+.poengrad .poengsum {
+  font-size: 1rem;
+  gap: 0.25rem;
+}
+.poengrad .poengsum svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.poengrad .poengnavn {
+  font-size: 0.95rem;
+}
+
+/* Overskrift for en del av en fane («Lekser», «Påminnelser», «Ledige gjøremål»). Inni lister og kort brukes de
+   små overskriftene med store bokstaver («HVER TORSDAG», «LEKSER»), så det er to tydelige nivåer. */
+.seksjonstittel {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--fg-2, var(--fg));
+}
+.seksjon:first-of-type > .seksjonstittel {
+  margin-top: 0.25rem;
+}
+
+/* Filvelgeren i KI: den innebygde (engelske) skjules, og en norsk knapp åpner den. Fokus vises på knappen. */
+.skjultfil {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+.filknapp {
+  /* En etikett som ser ut som en vanlig knapp */
+  justify-self: start;
+  cursor: pointer;
+  border: 1px solid var(--linje);
+  background: var(--kort);
+  border-radius: var(--radius-pill);
+  padding: 0.6rem 1.1rem;
+  min-height: var(--touch);
+  font-weight: 500;
+}
+.skjultfil:focus-visible + .filknapp {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.skjultfil:disabled + .filknapp {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* Kalenderfiltrene: mindre tekst, så de ikke tar mer plass enn selve kalenderen */
+.kalfilter button {
+  font-size: 0.95rem;
+  padding: 0.2rem 0.7rem;
+}
+.nyttskjema label.filknapp {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fg);
+  font-size: 1rem;
+}

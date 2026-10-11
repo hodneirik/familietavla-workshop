@@ -1,0 +1,367 @@
+/* Byggeklossene fra designsystemet: knapp, kort, merke, skjemafelt, infoboks og menyene. */
+
+/* Knapp */
+.knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.knapp--primær {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-green);
+  font-weight: 700;
+}
+.knapp--primær:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+.knapp--fare {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--hairline));
+}
+.knapp--fare:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--danger) 8%, var(--paper-2));
+}
+.knapp--tekst {
+  border-color: transparent;
+  background: transparent;
+  color: var(--green-ink);
+}
+.knapp--tekst:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--green-ink) 10%, transparent);
+}
+.knapp--stor {
+  min-height: 56px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+}
+.knapp--ikon {
+  padding: 0;
+  width: var(--touch);
+  min-width: var(--touch);
+}
+
+/* Kort */
+.kort {
+  background: var(--paper-2);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 1rem;
+}
+.kort--lopt {
+  transition:
+    box-shadow var(--dur-base) var(--ease),
+    transform var(--dur-base) var(--ease);
+}
+.kort--lopt:hover {
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-2px);
+}
+
+/* Merke */
+.merke {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--fg-3) 16%, var(--paper-2));
+}
+.merke--gronn {
+  background: color-mix(in srgb, var(--green-soft) 32%, var(--paper-2));
+}
+.merke--sand {
+  background: color-mix(in srgb, var(--sand) 70%, var(--paper-2));
+}
+.merke--leire {
+  background: color-mix(in srgb, var(--clay) 50%, var(--paper-2));
+}
+.merke--skifer {
+  background: color-mix(in srgb, var(--slate) 38%, var(--paper-2));
+}
+/* Mørk modus har lys tekst, så fargeflaten må være mørkere for at teksten skal være lesbar */
+@media (prefers-color-scheme: dark) {
+  .merke--gronn {
+    background: color-mix(in srgb, var(--green-soft) 28%, var(--paper-2));
+  }
+  .merke--sand {
+    background: color-mix(in srgb, var(--sand) 22%, var(--paper-2));
+  }
+  .merke--leire {
+    background: color-mix(in srgb, var(--clay) 30%, var(--paper-2));
+  }
+  .merke--skifer {
+    background: color-mix(in srgb, var(--slate) 32%, var(--paper-2));
+  }
+}
+
+/* Skjemafelt */
+.felt {
+  display: grid;
+  gap: 0.3rem;
+}
+.felt__etikett {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--fg-2);
+}
+.felt__hjelp {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--fg-3);
+}
+.felt__feil {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--danger);
+}
+.felt [aria-invalid="true"] {
+  border-color: var(--danger);
+}
+.felt textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-field);
+  background: var(--paper-2);
+  font-size: 16px;
+  resize: vertical;
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  border-color: var(--green-deep);
+}
+
+/* Infoboks */
+.infoboks {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--hairline);
+  border-radius: var(--radius-card);
+  background: var(--paper-2);
+  color: var(--fg-2);
+}
+.infoboks > svg {
+  flex: none;
+  margin-top: 1px;
+  color: var(--green-deep);
+}
+.infoboks__tekst {
+  min-width: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.infoboks__tittel {
+  margin: 0 0 0.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.infoboks--ok {
+  border-color: color-mix(in srgb, var(--ok) 40%, var(--hairline));
+}
+.infoboks--ok > svg {
+  color: var(--ok);
+}
+.infoboks--advarsel {
+  border-color: var(--sand);
+  background: color-mix(in srgb, var(--sand) 28%, var(--paper-2));
+}
+.infoboks--advarsel > svg {
+  color: var(--sand-stroke);
+}
+.infoboks--feil {
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--hairline));
+  color: var(--ink);
+}
+.infoboks--feil > svg {
+  color: var(--danger);
+}
+
+/* Toppmeny */
+.toppmeny {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: max(0.5rem, env(safe-area-inset-top)) 1rem 0.5rem;
+}
+/* Bakgrunn og strek går over hele bredden, også når innholdet er smalere enn skjermen */
+.toppmeny::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  background: color-mix(in srgb, var(--paper) 95%, transparent);
+  border-bottom: 1px solid var(--hairline);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.toppmeny h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+.toppmeny__bruker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.9rem 0.25rem 0.25rem;
+}
+.toppmeny__bilde {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.15rem;
+}
+.toppmeny__navn {
+  font-weight: 700;
+}
+
+/* Bunnmeny. Fargen kommer fra profilen, satt i Bunnmeny.tsx. */
+.bunnmeny {
+  position: fixed;
+  /* Over innhold som lager egne lag (avkrysninger, lapper), men under bokser og oppdateringsstripen */
+  z-index: 20;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background: var(--meny-bg, var(--paper-2));
+  color: var(--meny-fg, var(--ink));
+  box-shadow: var(--shadow-lift);
+  padding: 0.4rem 0.25rem max(0.4rem, env(safe-area-inset-bottom));
+}
+.bunnmeny button {
+  /* Bredden følger teksten, så «Innstillinger» får plass ved siden av korte navn som «KI». */
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.45rem 0.1rem;
+  font-size: 0.7rem;
+  border: 0;
+  border-radius: var(--radius-card);
+  background: none;
+  color: inherit;
+  opacity: 0.85;
+}
+.bunnmeny button.aktiv {
+  background: color-mix(in srgb, var(--meny-fg, var(--ink)) 12%, transparent);
+  font-weight: 700;
+  opacity: 1;
+}
+.bunnmeny button:focus-visible {
+  outline-color: var(--meny-fg, var(--ink));
+}
+@media (max-width: 359px) {
+  .bunnmeny button {
+    font-size: 0.62rem;
+  }
+}
+@media (min-width: 480px) {
+  .bunnmeny button {
+    font-size: 0.78rem;
+  }
+}
+@media (min-width: 700px) {
+  .bunnmeny button {
+    font-size: 0.85rem;
+  }
+}
+
+/* Faner øverst på en side (Faner.tsx). */
+.faner__liste {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--linje);
+  overflow-x: auto;
+}
+.faner__fane {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  color: var(--dempet);
+  font: inherit;
+  font-weight: 600;
+}
+.faner__fane.aktiv {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+.faner__fane:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.faner__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+/* Hele sider i en fane (Familie, Hva er nytt) fyller bredden i stedet for å krympe til innholdet. */
+.faner__panel > section {
+  align-self: stretch;
+  min-width: 0;
+}
+
+/* Toppen av hver fane (Sidetopp.tsx): tittel til venstre, hovedknapp til høyre. */
+.sidetopp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.sidetopp h2 {
+  margin: 0;
+}
+.sidetopp__handlinger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+/* Linjen med uke eller måned og forrige, i dag og neste (Kalender og Middag). */
+.navlinje {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+.navlinje__tekst {
+  margin: 0;
+  font-weight: 600;
+  color: var(--fg-2, var(--dempet));
+}

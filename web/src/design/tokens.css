@@ -1,0 +1,83 @@
+/*
+ * Designtokens. Alle farger, avstander og skrifter i appen hentes herfra.
+ * Skriften følger med appen (DM Sans, importert i main.tsx), siden tavla må virke uten nett.
+ */
+:root {
+  color-scheme: light dark;
+
+  /* Flater og tekst */
+  --paper: #f7f9f8;
+  --paper-2: #ffffff;
+  --ink: #12161c;
+  --fg-2: #4a5159;
+  --fg-3: #5f6670;
+  --hairline: #dde3e0;
+
+  /* Grønn. «ink» er mørkere enn designsystemets grønn, så lys tekst blir lesbar (5,2:1). */
+  --green-soft: #82b797;
+  --green-deep: #659776;
+  --green-ink: #467257;
+  --green-ink-hover: #3f6b4f;
+  --on-green: #f7f9f8;
+
+  /* Aksenter, også brukt som profilfarger */
+  --sage: #b4cdb0;
+  --sand: #e6d8b0;
+  --clay: #cda89a;
+  --slate: #889cb0;
+  --sand-stroke: #716d5f;
+  /* Stjerner: sand som fyll og mørkere sand som strek (4,9 til 1 mot papir) */
+  --stjerne-fyll: var(--sand);
+  --stjerne-strek: var(--sand-stroke);
+
+  /* Solgul, til solen i værmeldingen. Tydeligere enn sand, som forsvinner mot papiret */
+  --sol: #cf9b0a;
+  /* Værikoner: overskyet er mørk grå, og alt med regn er blått */
+  --sky-ikon: #4a5159;
+  --regn: #2a65a3;
+  --snoe: #5f84a8;
+  --danger: #b3382c;
+  --ok: #2e6b47;
+
+  /* Form og dybde */
+  --radius-card: 16px;
+  --radius-field: 12px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgb(18 22 28 / 0.05), 0 4px 14px rgb(18 22 28 / 0.05);
+  --shadow-lift: 0 2px 4px rgb(18 22 28 / 0.06), 0 12px 28px rgb(18 22 28 / 0.1);
+  --shadow-bar: 0 -1px 0 var(--hairline);
+
+  /* Bevegelse */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 380ms;
+
+  /* Skrift */
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --touch: 48px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12161c;
+    --paper-2: #1a2028;
+    --ink: #eef2f0;
+    --fg-2: #b9c1c8;
+    --fg-3: #98a2ab;
+    --hairline: #2b333c;
+    --green-ink: #5f9577;
+    --green-ink-hover: #6da585;
+    --on-green: #0f1a14;
+    --sand-stroke: #d9c98e;
+    --sol: #f2c94c;
+    --sky-ikon: #a3acb5;
+    --regn: #6fb1f0;
+    --snoe: #a9c4e0;
+    --danger: #ff8b7e;
+    --ok: #7ad3a0;
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 14px rgb(0 0 0 / 0.25);
+    --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.35), 0 12px 28px rgb(0 0 0 / 0.4);
+    --shadow-bar: 0 -1px 0 var(--hairline);
+  }
+}

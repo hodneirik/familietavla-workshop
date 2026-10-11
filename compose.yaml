@@ -1,0 +1,18 @@
+# Valgfritt: kjør appen i Docker i stedet for med npm run dev.
+#   cp .env.example .env && docker compose up --build
+# Databasen ligger i volumet tavla-data. Demofamilien lastes inn med:
+#   docker compose exec app node dist/cli/index.js seed-demo
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    ports:
+      - "3000:3000"
+    volumes:
+      - tavla-data:/data
+
+volumes:
+  tavla-data:
