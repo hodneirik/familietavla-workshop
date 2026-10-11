@@ -3,5 +3,8 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react()],
-  server: { proxy: { "/api": "http://localhost:3000" } },
+  server: {
+    // changeOrigin må være av, ellers får serveren Host localhost:3000 og avviser innlogging med «Ugyldig opprinnelse»
+    proxy: { "/api": { target: "http://localhost:3000", changeOrigin: false } },
+  },
 });
