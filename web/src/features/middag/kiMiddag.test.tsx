@@ -10,7 +10,7 @@ import {
   tidsromDatoer,
   type MiddagForslagSvar,
   type MiddagResultat,
-} from "./kiMiddag";
+} from "./kiMiddagLogikk";
 
 const forslag: MiddagForslagSvar = {
   fra: "2026-10-08",

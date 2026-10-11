@@ -7,7 +7,7 @@ import {
   grupperPaaminnelser,
   paaminnelserForDag,
   periodetekst,
-} from "./paaminnelser";
+} from "./paaminnelserLogikk";
 
 const barn = (id: number, visningsnavn: string) => ({
   id,

@@ -7,7 +7,7 @@ import { useDagsplan } from "../dagsliste/Dagsliste";
 import { dagerTilSondag } from "../dagsliste/tid";
 import { sorterEtterBarn } from "../lekser/sorter";
 import { useLekser } from "../lekser/useLekser";
-import { paaminnelserForDag } from "../paaminnelser/paaminnelser";
+import { paaminnelserForDag } from "../paaminnelser/paaminnelserLogikk";
 import { usePaaminnelser } from "../paaminnelser/usePaaminnelser";
 import { Dagkort } from "./Dagkort";
 

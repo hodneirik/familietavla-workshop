@@ -8,7 +8,7 @@ import {
   lagRetterState,
   type RetterForslagSvar,
   type RetterResultat,
-} from "./kiRetter";
+} from "./kiRetterLogikk";
 
 const forslag: RetterForslagSvar = {
   sammendrag: "Enkle fiskeretter.",

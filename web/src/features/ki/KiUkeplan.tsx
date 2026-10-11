@@ -8,7 +8,7 @@ import { Fremdrift } from "./Fremdrift";
 import { Opplasting } from "./Opplasting";
 import { Resultat } from "./Resultat";
 import { Spoersmaal } from "./Spoersmaal";
-import { antallValgt, mangler } from "./forslag";
+import { antallValgt, mangler } from "./forslagLogikk";
 import { useKi } from "./useKi";
 
 /**

@@ -50,6 +50,8 @@ Sjekk at Node virker. Du skal se `v22.13` eller høyere.
 node -v
 ```
 
+Ser du et lavere tall (for eksempel `v22.12.0`), eller `command not found`, må du installere Node på nytt fra [nodejs.org](https://nodejs.org) før du går videre. Med for gammel versjon feiler appen med meldingen `No such built-in module: node:sqlite`. Lukk og åpne terminalen igjen etter installasjonen, og kjør `node -v` på nytt.
+
 ### 3. Last ned prosjektet
 
 Dette lager en ny mappe som heter `familietavla`, der terminalen står akkurat nå. Mac og PC bruker samme kommando.

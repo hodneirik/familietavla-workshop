@@ -3,7 +3,7 @@ import { Avkrysning, Tekstfelt, Tekstomrade, Valgfelt } from "../../design/Felt"
 import { Infoboks } from "../../design/Infoboks";
 import { Knapp } from "../../design/Knapp";
 import { Fremdrift } from "../ki/Fremdrift";
-import { kroner } from "../ki/forslag";
+import { kroner } from "../ki/forslagLogikk";
 import {
   ANTALL_VALG,
   antallValgtRetter,
@@ -11,7 +11,7 @@ import {
   type RettRedigert,
   type RetterLeggInnSvar,
   type RetterResultat,
-} from "./kiRetter";
+} from "./kiRetterLogikk";
 import { useKiRetter } from "./useKiRetter";
 
 function Rett({ r, onEndre }: { r: RettRedigert; onEndre: (r: RettRedigert) => void }) {

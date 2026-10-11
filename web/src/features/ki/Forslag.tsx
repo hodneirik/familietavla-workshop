@@ -11,7 +11,7 @@ import type {
   LappRedigert,
   LeksRedigert,
   PaaminnelseRedigert,
-} from "./forslag";
+} from "./forslagLogikk";
 
 type Send = (h: ForslagHandling) => void;
 

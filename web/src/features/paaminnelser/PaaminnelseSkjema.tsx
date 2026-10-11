@@ -5,7 +5,7 @@ import { Knapp } from "../../design/Knapp";
 import { apiGet } from "../../lib/api";
 import { iDag, leggTilDager } from "../../lib/dato";
 import type { BrukerAdmin, Paaminnelse } from "../../lib/types";
-import { UKEDAGER } from "./paaminnelser";
+import { UKEDAGER } from "./paaminnelserLogikk";
 
 /** Det skjemaet sender: enten faste ukedager (eventuelt bare i en periode), eller én dato. */
 export interface PaaminnelseUt {
