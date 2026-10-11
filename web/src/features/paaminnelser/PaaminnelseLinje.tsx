@@ -1,5 +1,5 @@
 import type { Paaminnelse } from "../../lib/types";
-import { grupperPaaminnelser } from "./paaminnelser";
+import { grupperPaaminnelser } from "./paaminnelserLogikk";
 
 /**
  * Påminnelsene på en dag, smått og samlet i én linje under dagens overskrift: «Gym · Elias, Nelly».

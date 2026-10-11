@@ -11,7 +11,7 @@ import {
   type MiddagLeggInnSvar,
   type MiddagResultat,
   type Tidsrom,
-} from "./kiMiddag";
+} from "./kiMiddagLogikk";
 
 export type MiddagFase = "ledig" | "jobber" | "forslag" | "legger_inn" | "ferdig";
 

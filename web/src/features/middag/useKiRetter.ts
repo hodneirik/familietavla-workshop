@@ -8,7 +8,7 @@ import {
   type RettRedigert,
   type RetterLeggInnSvar,
   type RetterResultat,
-} from "./kiRetter";
+} from "./kiRetterLogikk";
 
 export type RetterFase = "ledig" | "jobber" | "forslag" | "legger_inn" | "ferdig";
 

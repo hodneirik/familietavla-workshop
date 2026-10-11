@@ -4,7 +4,7 @@ import { IkonKnapp, Knapp } from "../../design/Knapp";
 import { apiDelete, apiPatch, apiPost } from "../../lib/api";
 import type { Paaminnelse } from "../../lib/types";
 import { PaaminnelseSkjema, type PaaminnelseUt } from "./PaaminnelseSkjema";
-import { UKEDAGER, enkeltdagTekst, periodetekst } from "./paaminnelser";
+import { UKEDAGER, enkeltdagTekst, periodetekst } from "./paaminnelserLogikk";
 import { usePaaminnelser } from "./usePaaminnelser";
 
 /**

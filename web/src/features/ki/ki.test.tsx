@@ -21,7 +21,7 @@ import {
   standardUke,
   ukeEtikett,
   ukevalg,
-} from "./forslag";
+} from "./forslagLogikk";
 import type { AnalyseResultat, KiStatusSvar } from "./typer";
 
 const analyse = (over: Partial<AnalyseResultat["forslag"]> = {}): AnalyseResultat => ({

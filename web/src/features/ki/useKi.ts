@@ -9,7 +9,7 @@ import {
   lagSvarListe,
   slaaSammenSvar,
   standardUke,
-} from "./forslag";
+} from "./forslagLogikk";
 import type {
   AnalyseResultat,
   Duplikat,

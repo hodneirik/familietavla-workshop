@@ -6,7 +6,7 @@ import { Merke } from "../../design/Merke";
 import { kortDato, kortUkedag } from "../../lib/dato";
 import type { Rett } from "../../lib/types";
 import { Fremdrift } from "../ki/Fremdrift";
-import { kroner } from "../ki/forslag";
+import { kroner } from "../ki/forslagLogikk";
 import {
   TIDSROM,
   antallValgt,
@@ -15,7 +15,7 @@ import {
   type MiddagLeggInnSvar,
   type MiddagResultat,
   type Tidsrom,
-} from "./kiMiddag";
+} from "./kiMiddagLogikk";
 import { formaterSnitt } from "./Stjerner";
 import { useKiMiddag } from "./useKiMiddag";
 

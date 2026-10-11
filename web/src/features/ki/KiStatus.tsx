@@ -1,5 +1,5 @@
 import { Infoboks } from "../../design/Infoboks";
-import { kroner } from "./forslag";
+import { kroner } from "./forslagLogikk";
 import type { KiStatusSvar } from "./typer";
 
 /** Hva KI-en har kostet denne måneden, og hvorfor den eventuelt er av. */

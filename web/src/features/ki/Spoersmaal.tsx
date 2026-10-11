@@ -1,5 +1,5 @@
 import { Knapp } from "../../design/Knapp";
-import { SKIP } from "./forslag";
+import { SKIP } from "./forslagLogikk";
 import type { Sporsmaal } from "./typer";
 
 interface Props {

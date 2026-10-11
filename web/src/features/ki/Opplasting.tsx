@@ -1,7 +1,7 @@
 import { Avkrysning, Valgfelt } from "../../design/Felt";
 import { Ikon } from "../../design/Ikon";
 import { Knapp } from "../../design/Knapp";
-import { ukeEtikett, ukevalg } from "./forslag";
+import { ukeEtikett, ukevalg } from "./forslagLogikk";
 import type { Pdf } from "./useKi";
 
 interface Props {
