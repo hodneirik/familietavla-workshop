@@ -158,7 +158,7 @@ Før du sender inn en endring: `npm test && npm run lint && npm run typecheck &&
 
 - **Docker:** `docker compose up --build`, og last inn demofamilien med `docker compose exec app node dist/cli/index.js seed-demo`.
 - **KI i appen** (ukeplan som PDF, middagsforslag for voksne) er av til du legger en `ANTHROPIC_API_KEY` i `.env`. Resten av appen virker uten.
-- **Værvarsel** er av i denne kopien (eksternt API). Sett `VAER_AKTIV=true` i `.env` for å se det.
+- **Værvarsel** er på og henter fra et eksternt API (trenger nett). Får du brannmurtrøbbel, sett `VAER_AKTIV=false` i `.env`. Resten av appen virker uten.
 
 ## Lisens
 
